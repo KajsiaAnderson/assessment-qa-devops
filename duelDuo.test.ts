@@ -29,11 +29,11 @@ test("draw button displays choices id", async () => {
 })
 
 test("add duo button displays id", async () => {
-    await driver.findElement(By.id('choices'))
+    await driver.findElement(By.id('draw')).click()
     await driver.findElement(By.className('bot-btn')).click()
-    expect(await driver.findElement(By.id('player-duo'))).toBeTruthy()
+    await driver.sleep(3000)
+    const playerDuo = await driver.findElement(By.id('player-duo'))
+    const display = playerDuo.isDisplayed()
+    expect(display).toBeTruthy()
     await driver.sleep(3000)
 })
-
-
-
